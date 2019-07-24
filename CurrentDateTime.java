@@ -8,7 +8,10 @@ public class CurrentDateTime {
     public static void main(String[] args){
         LocalDate dNow = LocalDate.now();
         System.out.println(dNow);
-        LocalDate
+        LocalTime tNow = Localtime.now();
+        System.out.println(tNow);
+        LocalDataTime Now = Localtime.now();
+        System.out.println(Now);
     }
 
 }
