@@ -18,7 +18,7 @@ public class Exmple_01 {
             DataInputStream dis = new DataInputStream(fis);
             System.out.print(dis.readUTF());
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();//Exception类的方法之一,  在屏幕输出函数栈信息,  也就是异常出现的地方.
         }
     }
 }

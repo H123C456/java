@@ -1,7 +1,6 @@
 package AA.IO;
 
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import org.springframework.util.StringUtils;
 import sun.security.ssl.Debug;
 
 import java.io.*;
@@ -14,12 +13,12 @@ import java.io.File;
 
 
 
-import static org.springframework.util.FileSystemUtils.deleteRecursively;
+
 
 public class FileIO {
     protected static final int BLKSIZ=16384;
 
-    public static final String ENCODING_UTF_8= StringUtil.ENCODING_UTF_8;
+
 
     private FileIO() throws IOException {
 
@@ -62,12 +61,12 @@ public static void copyFile(Reader is,Writer os,boolean close)
         if(close)
             os.close();
 }
-public static void copyFile(String inName,PrintWriter pw,boolean close)throws
-        FileNotFoundException,IOException{
+public static void copyFile(String inName,PrintWriter pw,boolean close)
+        throws FileNotFoundException,IOException{
          BufferedReader ir = new BufferedReader(new FileReader(inName));
          copyFile(ir,pw,close);
 }
-public static void main copyFile(File file target)throws IOException{
+public static void copyFile(File file,File target)throws IOException{
     if (!file.exists()||!file.isFile()||!(file.canRead())){
         throw new IOException(file+"is not a readable file");
     }
@@ -112,7 +111,7 @@ public void copyFileBuffered(String inName,String outName)throws FileNotFoundExc
 }
 public static void copyRecursively(File fromDir, File toDir, boolean create)
     throws IOException{
-    Debug.printf("file io","copyRecursively(%s,%s%n",fromDir,toDir);
+
     if (!fromDir.exists()){
         throw new IOException(
                 String.format("Source directory %S does not exist",fromDir));
@@ -163,7 +162,7 @@ public static void copyRecursively(JarFile base, JarEntry startingDir,File toDir
     }
     if (!toDir.exists()){
         throw new IOException(String.format(
-                "Destination dir %s is not a directory", startingDir,File toDir));
+                "Destination dir %s is not a directory", startingDir));
     }
     Enumeration<JarEntry> all = base.entries();
     while (all.hasMoreElements()){
@@ -219,7 +218,7 @@ public static String readAsString(String filename)throws IOException{
 }
 public static void StringToFile(String text, String fileName)
     throws IOException{
-    BufferedWriter os = new BufferedWriter(new FileWriter(fileName))
+    BufferedWriter os = new BufferedWriter(new FileWriter(fileName));
      os.write(text);
      os.flush();
      os.close();
